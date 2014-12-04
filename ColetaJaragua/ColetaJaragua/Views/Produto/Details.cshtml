@@ -1,0 +1,36 @@
+﻿@model ColetaJaragua.Models.Tb_Produto
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Tb_Produto</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Codigo_Produto)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Codigo_Produto)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Descricao)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Descricao)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Tb_Codigo_UM.Descricao)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Tb_Codigo_UM.Descricao)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id=Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

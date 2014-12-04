@@ -1,0 +1,36 @@
+﻿@model ColetaJaragua.Models.Tb_Box
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Tb_Box</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Codigo_Box)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Codigo_Box)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Descricao)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Descricao)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Tb_Cadastro_Coletores.Nome_Coletor)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Tb_Cadastro_Coletores.Nome_Coletor)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id=Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,156 @@
+﻿@model ColetaJaragua.Models.Tb_Cadastro_Coletores
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Tb_Cadastro_Coletores</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Codigo_Coletor)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Codigo_Coletor)
+            @Html.ValidationMessageFor(model => model.Codigo_Coletor)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Nome_Coletor)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Nome_Coletor)
+            @Html.ValidationMessageFor(model => model.Nome_Coletor)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.CPF)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.CPF)
+            @Html.ValidationMessageFor(model => model.CPF)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.RG)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.RG)
+            @Html.ValidationMessageFor(model => model.RG)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Data_Nascimento)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Data_Nascimento)
+            @Html.ValidationMessageFor(model => model.Data_Nascimento)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Codigo_Sexo_Coletor, "Tb_Tipo_Sexo")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("Codigo_Sexo_Coletor", String.Empty)
+            @Html.ValidationMessageFor(model => model.Codigo_Sexo_Coletor)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Cidade)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Cidade)
+            @Html.ValidationMessageFor(model => model.Cidade)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Bairro)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Bairro)
+            @Html.ValidationMessageFor(model => model.Bairro)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Complemento)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Complemento)
+            @Html.ValidationMessageFor(model => model.Complemento)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.UF)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.UF)
+            @Html.ValidationMessageFor(model => model.UF)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Codigo_Estado_Civil, "Tb_Tipo_Civil")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("Codigo_Estado_Civil", String.Empty)
+            @Html.ValidationMessageFor(model => model.Codigo_Estado_Civil)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Codigo_Tipo_Associado, "Tb_Tipo_Associado")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("Codigo_Tipo_Associado", String.Empty)
+            @Html.ValidationMessageFor(model => model.Codigo_Tipo_Associado)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Telefone)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Telefone)
+            @Html.ValidationMessageFor(model => model.Telefone)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Codigo_Banco_Coletor, "Tb_Banco")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("Codigo_Banco_Coletor", String.Empty)
+            @Html.ValidationMessageFor(model => model.Codigo_Banco_Coletor)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Agencia)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Agencia)
+            @Html.ValidationMessageFor(model => model.Agencia)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Conta_Corrente)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Conta_Corrente)
+            @Html.ValidationMessageFor(model => model.Conta_Corrente)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

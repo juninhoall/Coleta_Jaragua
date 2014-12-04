@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DataBasseColetoresModelStoreContainer" CdmEntityContainer="DataBasseColetoresEntities">
+    <EntitySetMapping Name="Tb_Banco">
+      <EntityTypeMapping TypeName="DataBasseColetoresModel.Tb_Banco">
+        <MappingFragment StoreEntitySet="Tb_Banco">
+          <ScalarProperty Name="Codigo_Banco" ColumnName="Codigo_Banco" />
+          <ScalarProperty Name="Descricao_Banco" ColumnName="Descricao_Banco" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tb_Box">
+      <EntityTypeMapping TypeName="DataBasseColetoresModel.Tb_Box">
+        <MappingFragment StoreEntitySet="Tb_Box">
+          <ScalarProperty Name="Codigo_Box" ColumnName="Codigo_Box" />
+          <ScalarProperty Name="Descricao" ColumnName="Descricao" />
+          <ScalarProperty Name="Codigo_Func" ColumnName="Codigo_Func" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tb_Cadastro_Coletores">
+      <EntityTypeMapping TypeName="DataBasseColetoresModel.Tb_Cadastro_Coletores">
+        <MappingFragment StoreEntitySet="Tb_Cadastro_Coletores">
+          <ScalarProperty Name="Codigo_Coletor" ColumnName="Codigo_Coletor" />
+          <ScalarProperty Name="Nome_Coletor" ColumnName="Nome_Coletor" />
+          <ScalarProperty Name="CPF" ColumnName="CPF" />
+          <ScalarProperty Name="RG" ColumnName="RG" />
+          <ScalarProperty Name="Data_Nascimento" ColumnName="Data_Nascimento" />
+          <ScalarProperty Name="Codigo_Sexo_Coletor" ColumnName="Codigo_Sexo_Coletor" />
+          <ScalarProperty Name="Cidade" ColumnName="Cidade" />
+          <ScalarProperty Name="Bairro" ColumnName="Bairro" />
+          <ScalarProperty Name="Complemento" ColumnName="Complemento" />
+          <ScalarProperty Name="UF" ColumnName="UF" />
+          <ScalarProperty Name="Codigo_Estado_Civil" ColumnName="Codigo_Estado_Civil" />
+          <ScalarProperty Name="Codigo_Tipo_Associado" ColumnName="Codigo_Tipo_Associado" />
+          <ScalarProperty Name="Telefone" ColumnName="Telefone" />
+          <ScalarProperty Name="Codigo_Banco_Coletor" ColumnName="Codigo_Banco_Coletor" />
+          <ScalarProperty Name="Agencia" ColumnName="Agencia" />
+          <ScalarProperty Name="Conta_Corrente" ColumnName="Conta_Corrente" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tb_Codigo_UM">
+      <EntityTypeMapping TypeName="DataBasseColetoresModel.Tb_Codigo_UM">
+        <MappingFragment StoreEntitySet="Tb_Codigo_UM">
+          <ScalarProperty Name="Codigo_UnidadeM" ColumnName="Codigo_UnidadeM" />
+          <ScalarProperty Name="Descricao" ColumnName="Descricao" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tb_Empresa">
+      <EntityTypeMapping TypeName="DataBasseColetoresModel.Tb_Empresa">
+        <MappingFragment StoreEntitySet="Tb_Empresa">
+          <ScalarProperty Name="Codigo_Empresa" ColumnName="Codigo_Empresa" />
+          <ScalarProperty Name="Nome_Empresa" ColumnName="Nome_Empresa" />
+          <ScalarProperty Name="CNPJ" ColumnName="CNPJ" />
+          <ScalarProperty Name="Inscricao_Estadual" ColumnName="Inscricao_Estadual" />
+          <ScalarProperty Name="Inscricao_Municipal" ColumnName="Inscricao_Municipal" />
+          <ScalarProperty Name="Cidade" ColumnName="Cidade" />
+          <ScalarProperty Name="Bairro" ColumnName="Bairro" />
+          <ScalarProperty Name="UF" ColumnName="UF" />
+          <ScalarProperty Name="Telefone1" ColumnName="Telefone1" />
+          <ScalarProperty Name="Telefone2" ColumnName="Telefone2" />
+          <ScalarProperty Name="Contato" ColumnName="Contato" />
+          <ScalarProperty Name="EMail" ColumnName="EMail" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tb_Produto">
+      <EntityTypeMapping TypeName="DataBasseColetoresModel.Tb_Produto">
+        <MappingFragment StoreEntitySet="Tb_Produto">
+          <ScalarProperty Name="Codigo_Produto" ColumnName="Codigo_Produto" />
+          <ScalarProperty Name="Descricao" ColumnName="Descricao" />
+          <ScalarProperty Name="Codigo_Medidas" ColumnName="Codigo_Medidas" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tb_Tipo_Associado">
+      <EntityTypeMapping TypeName="DataBasseColetoresModel.Tb_Tipo_Associado">
+        <MappingFragment StoreEntitySet="Tb_Tipo_Associado">
+          <ScalarProperty Name="Codigo_Tipo_Associado" ColumnName="Codigo_Tipo_Associado" />
+          <ScalarProperty Name="Descricao_Tipo" ColumnName="Descricao_Tipo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tb_Tipo_Civil">
+      <EntityTypeMapping TypeName="DataBasseColetoresModel.Tb_Tipo_Civil">
+        <MappingFragment StoreEntitySet="Tb_Tipo_Civil">
+          <ScalarProperty Name="Codigo_Civil" ColumnName="Codigo_Civil" />
+          <ScalarProperty Name="Descricao_Civil" ColumnName="Descricao_Civil" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tb_Tipo_Sexo">
+      <EntityTypeMapping TypeName="DataBasseColetoresModel.Tb_Tipo_Sexo">
+        <MappingFragment StoreEntitySet="Tb_Tipo_Sexo">
+          <ScalarProperty Name="Codigo_Sexo" ColumnName="Codigo_Sexo" />
+          <ScalarProperty Name="Descricao_Sexo" ColumnName="Descricao_Sexo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

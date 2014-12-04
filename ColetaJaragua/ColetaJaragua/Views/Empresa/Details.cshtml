@@ -1,0 +1,99 @@
+﻿@model ColetaJaragua.Models.Tb_Empresa
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Tb_Empresa</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Codigo_Empresa)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Codigo_Empresa)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Nome_Empresa)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Nome_Empresa)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.CNPJ)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CNPJ)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Inscricao_Estadual)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Inscricao_Estadual)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Inscricao_Municipal)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Inscricao_Municipal)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Cidade)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Cidade)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Bairro)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Bairro)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.UF)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.UF)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Telefone1)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Telefone1)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Telefone2)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Telefone2)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Contato)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Contato)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.EMail)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.EMail)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id=Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

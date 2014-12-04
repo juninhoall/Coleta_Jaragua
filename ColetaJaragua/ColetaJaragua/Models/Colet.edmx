@@ -1,0 +1,544 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="DataBasseColetoresModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Tb_Banco">
+          <Key>
+            <PropertyRef Name="Codigo_Banco" />
+          </Key>
+          <Property Name="Codigo_Banco" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descricao_Banco" Type="nvarchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tb_Box">
+          <Key>
+            <PropertyRef Name="Codigo_Box" />
+          </Key>
+          <Property Name="Codigo_Box" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descricao" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Codigo_Func" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tb_Cadastro_Coletores">
+          <Key>
+            <PropertyRef Name="Codigo_Coletor" />
+          </Key>
+          <Property Name="Codigo_Coletor" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nome_Coletor" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CPF" Type="nvarchar" MaxLength="15" Nullable="false" />
+          <Property Name="RG" Type="nvarchar" MaxLength="15" Nullable="false" />
+          <Property Name="Data_Nascimento" Type="date" Nullable="false" />
+          <Property Name="Codigo_Sexo_Coletor" Type="int" Nullable="false" />
+          <Property Name="Cidade" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Bairro" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Complemento" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="UF" Type="nvarchar" MaxLength="2" Nullable="false" />
+          <Property Name="Codigo_Estado_Civil" Type="int" Nullable="false" />
+          <Property Name="Codigo_Tipo_Associado" Type="int" Nullable="false" />
+          <Property Name="Telefone" Type="nvarchar" MaxLength="13" Nullable="false" />
+          <Property Name="Codigo_Banco_Coletor" Type="int" Nullable="false" />
+          <Property Name="Agencia" Type="nvarchar" MaxLength="19" Nullable="false" />
+          <Property Name="Conta_Corrente" Type="nvarchar" MaxLength="18" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tb_Codigo_UM">
+          <Key>
+            <PropertyRef Name="Codigo_UnidadeM" />
+          </Key>
+          <Property Name="Codigo_UnidadeM" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descricao" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tb_Empresa">
+          <Key>
+            <PropertyRef Name="Codigo_Empresa" />
+          </Key>
+          <Property Name="Codigo_Empresa" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nome_Empresa" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CNPJ" Type="nvarchar" MaxLength="17" Nullable="false" />
+          <Property Name="Inscricao_Estadual" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Inscricao_Municipal" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Cidade" Type="nvarchar" MaxLength="40" Nullable="false" />
+          <Property Name="Bairro" Type="nvarchar" MaxLength="35" Nullable="false" />
+          <Property Name="UF" Type="nvarchar" MaxLength="3" Nullable="false" />
+          <Property Name="Telefone1" Type="nvarchar" MaxLength="15" Nullable="false" />
+          <Property Name="Telefone2" Type="nvarchar" MaxLength="15" Nullable="false" />
+          <Property Name="Contato" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="EMail" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tb_Produto">
+          <Key>
+            <PropertyRef Name="Codigo_Produto" />
+          </Key>
+          <Property Name="Codigo_Produto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descricao" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Codigo_Medidas" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tb_Tipo_Associado">
+          <Key>
+            <PropertyRef Name="Codigo_Tipo_Associado" />
+          </Key>
+          <Property Name="Codigo_Tipo_Associado" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descricao_Tipo" Type="nvarchar" MaxLength="15" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tb_Tipo_Civil">
+          <Key>
+            <PropertyRef Name="Codigo_Civil" />
+          </Key>
+          <Property Name="Codigo_Civil" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descricao_Civil" Type="nvarchar" MaxLength="12" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tb_Tipo_Sexo">
+          <Key>
+            <PropertyRef Name="Codigo_Sexo" />
+          </Key>
+          <Property Name="Codigo_Sexo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descricao_Sexo" Type="varchar" MaxLength="15" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Banco">
+          <End Role="Tb_Banco" Type="Self.Tb_Banco" Multiplicity="1" />
+          <End Role="Tb_Cadastro_Coletores" Type="Self.Tb_Cadastro_Coletores" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tb_Banco">
+              <PropertyRef Name="Codigo_Banco" />
+            </Principal>
+            <Dependent Role="Tb_Cadastro_Coletores">
+              <PropertyRef Name="Codigo_Banco_Coletor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Estado_Civil">
+          <End Role="Tb_Tipo_Civil" Type="Self.Tb_Tipo_Civil" Multiplicity="1" />
+          <End Role="Tb_Cadastro_Coletores" Type="Self.Tb_Cadastro_Coletores" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tb_Tipo_Civil">
+              <PropertyRef Name="Codigo_Civil" />
+            </Principal>
+            <Dependent Role="Tb_Cadastro_Coletores">
+              <PropertyRef Name="Codigo_Estado_Civil" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Sexo">
+          <End Role="Tb_Tipo_Sexo" Type="Self.Tb_Tipo_Sexo" Multiplicity="1" />
+          <End Role="Tb_Cadastro_Coletores" Type="Self.Tb_Cadastro_Coletores" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tb_Tipo_Sexo">
+              <PropertyRef Name="Codigo_Sexo" />
+            </Principal>
+            <Dependent Role="Tb_Cadastro_Coletores">
+              <PropertyRef Name="Codigo_Sexo_Coletor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tb_Produto_ToTable">
+          <End Role="Tb_Codigo_UM" Type="Self.Tb_Codigo_UM" Multiplicity="1" />
+          <End Role="Tb_Produto" Type="Self.Tb_Produto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tb_Codigo_UM">
+              <PropertyRef Name="Codigo_UnidadeM" />
+            </Principal>
+            <Dependent Role="Tb_Produto">
+              <PropertyRef Name="Codigo_Medidas" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TFuncionario">
+          <End Role="Tb_Cadastro_Coletores" Type="Self.Tb_Cadastro_Coletores" Multiplicity="1" />
+          <End Role="Tb_Box" Type="Self.Tb_Box" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tb_Cadastro_Coletores">
+              <PropertyRef Name="Codigo_Coletor" />
+            </Principal>
+            <Dependent Role="Tb_Box">
+              <PropertyRef Name="Codigo_Func" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TipoAssociado">
+          <End Role="Tb_Tipo_Associado" Type="Self.Tb_Tipo_Associado" Multiplicity="1" />
+          <End Role="Tb_Cadastro_Coletores" Type="Self.Tb_Cadastro_Coletores" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tb_Tipo_Associado">
+              <PropertyRef Name="Codigo_Tipo_Associado" />
+            </Principal>
+            <Dependent Role="Tb_Cadastro_Coletores">
+              <PropertyRef Name="Codigo_Tipo_Associado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DataBasseColetoresModelStoreContainer">
+          <EntitySet Name="Tb_Banco" EntityType="Self.Tb_Banco" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tb_Box" EntityType="Self.Tb_Box" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tb_Cadastro_Coletores" EntityType="Self.Tb_Cadastro_Coletores" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tb_Codigo_UM" EntityType="Self.Tb_Codigo_UM" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tb_Empresa" EntityType="Self.Tb_Empresa" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tb_Produto" EntityType="Self.Tb_Produto" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tb_Tipo_Associado" EntityType="Self.Tb_Tipo_Associado" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tb_Tipo_Civil" EntityType="Self.Tb_Tipo_Civil" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tb_Tipo_Sexo" EntityType="Self.Tb_Tipo_Sexo" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Banco" Association="Self.FK_Banco">
+            <End Role="Tb_Banco" EntitySet="Tb_Banco" />
+            <End Role="Tb_Cadastro_Coletores" EntitySet="Tb_Cadastro_Coletores" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Estado_Civil" Association="Self.FK_Estado_Civil">
+            <End Role="Tb_Tipo_Civil" EntitySet="Tb_Tipo_Civil" />
+            <End Role="Tb_Cadastro_Coletores" EntitySet="Tb_Cadastro_Coletores" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sexo" Association="Self.FK_Sexo">
+            <End Role="Tb_Tipo_Sexo" EntitySet="Tb_Tipo_Sexo" />
+            <End Role="Tb_Cadastro_Coletores" EntitySet="Tb_Cadastro_Coletores" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tb_Produto_ToTable" Association="Self.FK_Tb_Produto_ToTable">
+            <End Role="Tb_Codigo_UM" EntitySet="Tb_Codigo_UM" />
+            <End Role="Tb_Produto" EntitySet="Tb_Produto" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TFuncionario" Association="Self.FK_TFuncionario">
+            <End Role="Tb_Cadastro_Coletores" EntitySet="Tb_Cadastro_Coletores" />
+            <End Role="Tb_Box" EntitySet="Tb_Box" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TipoAssociado" Association="Self.FK_TipoAssociado">
+            <End Role="Tb_Tipo_Associado" EntitySet="Tb_Tipo_Associado" />
+            <End Role="Tb_Cadastro_Coletores" EntitySet="Tb_Cadastro_Coletores" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DataBasseColetoresModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Tb_Banco">
+          <Key>
+            <PropertyRef Name="Codigo_Banco" />
+          </Key>
+          <Property Name="Codigo_Banco" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descricao_Banco" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Tb_Cadastro_Coletores" Relationship="Self.FK_Banco" FromRole="Tb_Banco" ToRole="Tb_Cadastro_Coletores" />
+        </EntityType>
+        <EntityType Name="Tb_Box">
+          <Key>
+            <PropertyRef Name="Codigo_Box" />
+          </Key>
+          <Property Name="Codigo_Box" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descricao" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Codigo_Func" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Tb_Cadastro_Coletores" Relationship="Self.FK_TFuncionario" FromRole="Tb_Box" ToRole="Tb_Cadastro_Coletores" />
+        </EntityType>
+        <EntityType Name="Tb_Cadastro_Coletores">
+          <Key>
+            <PropertyRef Name="Codigo_Coletor" />
+          </Key>
+          <Property Name="Codigo_Coletor" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nome_Coletor" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CPF" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="RG" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Data_Nascimento" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Codigo_Sexo_Coletor" Type="Int32" Nullable="false" />
+          <Property Name="Cidade" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Bairro" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Complemento" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UF" Type="String" MaxLength="2" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Codigo_Estado_Civil" Type="Int32" Nullable="false" />
+          <Property Name="Codigo_Tipo_Associado" Type="Int32" Nullable="false" />
+          <Property Name="Telefone" Type="String" MaxLength="13" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Codigo_Banco_Coletor" Type="Int32" Nullable="false" />
+          <Property Name="Agencia" Type="String" MaxLength="19" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Conta_Corrente" Type="String" MaxLength="18" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Tb_Banco" Relationship="Self.FK_Banco" FromRole="Tb_Cadastro_Coletores" ToRole="Tb_Banco" />
+          <NavigationProperty Name="Tb_Box" Relationship="Self.FK_TFuncionario" FromRole="Tb_Cadastro_Coletores" ToRole="Tb_Box" />
+          <NavigationProperty Name="Tb_Tipo_Civil" Relationship="Self.FK_Estado_Civil" FromRole="Tb_Cadastro_Coletores" ToRole="Tb_Tipo_Civil" />
+          <NavigationProperty Name="Tb_Tipo_Sexo" Relationship="Self.FK_Sexo" FromRole="Tb_Cadastro_Coletores" ToRole="Tb_Tipo_Sexo" />
+          <NavigationProperty Name="Tb_Tipo_Associado" Relationship="Self.FK_TipoAssociado" FromRole="Tb_Cadastro_Coletores" ToRole="Tb_Tipo_Associado" />
+        </EntityType>
+        <EntityType Name="Tb_Codigo_UM">
+          <Key>
+            <PropertyRef Name="Codigo_UnidadeM" />
+          </Key>
+          <Property Name="Codigo_UnidadeM" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descricao" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Tb_Produto" Relationship="Self.FK_Tb_Produto_ToTable" FromRole="Tb_Codigo_UM" ToRole="Tb_Produto" />
+        </EntityType>
+        <EntityType Name="Tb_Empresa">
+          <Key>
+            <PropertyRef Name="Codigo_Empresa" />
+          </Key>
+          <Property Name="Codigo_Empresa" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nome_Empresa" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CNPJ" Type="String" MaxLength="17" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Inscricao_Estadual" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Inscricao_Municipal" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Cidade" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Bairro" Type="String" MaxLength="35" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UF" Type="String" MaxLength="3" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Telefone1" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Telefone2" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Contato" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="EMail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tb_Produto">
+          <Key>
+            <PropertyRef Name="Codigo_Produto" />
+          </Key>
+          <Property Name="Codigo_Produto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descricao" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Codigo_Medidas" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Tb_Codigo_UM" Relationship="Self.FK_Tb_Produto_ToTable" FromRole="Tb_Produto" ToRole="Tb_Codigo_UM" />
+        </EntityType>
+        <EntityType Name="Tb_Tipo_Associado">
+          <Key>
+            <PropertyRef Name="Codigo_Tipo_Associado" />
+          </Key>
+          <Property Name="Codigo_Tipo_Associado" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descricao_Tipo" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Tb_Cadastro_Coletores" Relationship="Self.FK_TipoAssociado" FromRole="Tb_Tipo_Associado" ToRole="Tb_Cadastro_Coletores" />
+        </EntityType>
+        <EntityType Name="Tb_Tipo_Civil">
+          <Key>
+            <PropertyRef Name="Codigo_Civil" />
+          </Key>
+          <Property Name="Codigo_Civil" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descricao_Civil" Type="String" MaxLength="12" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Tb_Cadastro_Coletores" Relationship="Self.FK_Estado_Civil" FromRole="Tb_Tipo_Civil" ToRole="Tb_Cadastro_Coletores" />
+        </EntityType>
+        <EntityType Name="Tb_Tipo_Sexo">
+          <Key>
+            <PropertyRef Name="Codigo_Sexo" />
+          </Key>
+          <Property Name="Codigo_Sexo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descricao_Sexo" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Tb_Cadastro_Coletores" Relationship="Self.FK_Sexo" FromRole="Tb_Tipo_Sexo" ToRole="Tb_Cadastro_Coletores" />
+        </EntityType>
+        <Association Name="FK_Banco">
+          <End Role="Tb_Banco" Type="Self.Tb_Banco" Multiplicity="1" />
+          <End Role="Tb_Cadastro_Coletores" Type="Self.Tb_Cadastro_Coletores" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tb_Banco">
+              <PropertyRef Name="Codigo_Banco" />
+            </Principal>
+            <Dependent Role="Tb_Cadastro_Coletores">
+              <PropertyRef Name="Codigo_Banco_Coletor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TFuncionario">
+          <End Role="Tb_Cadastro_Coletores" Type="Self.Tb_Cadastro_Coletores" Multiplicity="1" />
+          <End Role="Tb_Box" Type="Self.Tb_Box" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tb_Cadastro_Coletores">
+              <PropertyRef Name="Codigo_Coletor" />
+            </Principal>
+            <Dependent Role="Tb_Box">
+              <PropertyRef Name="Codigo_Func" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Estado_Civil">
+          <End Role="Tb_Tipo_Civil" Type="Self.Tb_Tipo_Civil" Multiplicity="1" />
+          <End Role="Tb_Cadastro_Coletores" Type="Self.Tb_Cadastro_Coletores" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tb_Tipo_Civil">
+              <PropertyRef Name="Codigo_Civil" />
+            </Principal>
+            <Dependent Role="Tb_Cadastro_Coletores">
+              <PropertyRef Name="Codigo_Estado_Civil" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Sexo">
+          <End Role="Tb_Tipo_Sexo" Type="Self.Tb_Tipo_Sexo" Multiplicity="1" />
+          <End Role="Tb_Cadastro_Coletores" Type="Self.Tb_Cadastro_Coletores" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tb_Tipo_Sexo">
+              <PropertyRef Name="Codigo_Sexo" />
+            </Principal>
+            <Dependent Role="Tb_Cadastro_Coletores">
+              <PropertyRef Name="Codigo_Sexo_Coletor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TipoAssociado">
+          <End Role="Tb_Tipo_Associado" Type="Self.Tb_Tipo_Associado" Multiplicity="1" />
+          <End Role="Tb_Cadastro_Coletores" Type="Self.Tb_Cadastro_Coletores" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tb_Tipo_Associado">
+              <PropertyRef Name="Codigo_Tipo_Associado" />
+            </Principal>
+            <Dependent Role="Tb_Cadastro_Coletores">
+              <PropertyRef Name="Codigo_Tipo_Associado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tb_Produto_ToTable">
+          <End Role="Tb_Codigo_UM" Type="Self.Tb_Codigo_UM" Multiplicity="1" />
+          <End Role="Tb_Produto" Type="Self.Tb_Produto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tb_Codigo_UM">
+              <PropertyRef Name="Codigo_UnidadeM" />
+            </Principal>
+            <Dependent Role="Tb_Produto">
+              <PropertyRef Name="Codigo_Medidas" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DataBasseColetoresEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Tb_Banco" EntityType="Self.Tb_Banco" />
+          <EntitySet Name="Tb_Box" EntityType="Self.Tb_Box" />
+          <EntitySet Name="Tb_Cadastro_Coletores" EntityType="Self.Tb_Cadastro_Coletores" />
+          <EntitySet Name="Tb_Codigo_UM" EntityType="Self.Tb_Codigo_UM" />
+          <EntitySet Name="Tb_Empresa" EntityType="Self.Tb_Empresa" />
+          <EntitySet Name="Tb_Produto" EntityType="Self.Tb_Produto" />
+          <EntitySet Name="Tb_Tipo_Associado" EntityType="Self.Tb_Tipo_Associado" />
+          <EntitySet Name="Tb_Tipo_Civil" EntityType="Self.Tb_Tipo_Civil" />
+          <EntitySet Name="Tb_Tipo_Sexo" EntityType="Self.Tb_Tipo_Sexo" />
+          <AssociationSet Name="FK_Banco" Association="Self.FK_Banco">
+            <End Role="Tb_Banco" EntitySet="Tb_Banco" />
+            <End Role="Tb_Cadastro_Coletores" EntitySet="Tb_Cadastro_Coletores" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TFuncionario" Association="Self.FK_TFuncionario">
+            <End Role="Tb_Cadastro_Coletores" EntitySet="Tb_Cadastro_Coletores" />
+            <End Role="Tb_Box" EntitySet="Tb_Box" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Estado_Civil" Association="Self.FK_Estado_Civil">
+            <End Role="Tb_Tipo_Civil" EntitySet="Tb_Tipo_Civil" />
+            <End Role="Tb_Cadastro_Coletores" EntitySet="Tb_Cadastro_Coletores" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sexo" Association="Self.FK_Sexo">
+            <End Role="Tb_Tipo_Sexo" EntitySet="Tb_Tipo_Sexo" />
+            <End Role="Tb_Cadastro_Coletores" EntitySet="Tb_Cadastro_Coletores" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TipoAssociado" Association="Self.FK_TipoAssociado">
+            <End Role="Tb_Tipo_Associado" EntitySet="Tb_Tipo_Associado" />
+            <End Role="Tb_Cadastro_Coletores" EntitySet="Tb_Cadastro_Coletores" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tb_Produto_ToTable" Association="Self.FK_Tb_Produto_ToTable">
+            <End Role="Tb_Codigo_UM" EntitySet="Tb_Codigo_UM" />
+            <End Role="Tb_Produto" EntitySet="Tb_Produto" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DataBasseColetoresModelStoreContainer" CdmEntityContainer="DataBasseColetoresEntities">
+          <EntitySetMapping Name="Tb_Banco">
+            <EntityTypeMapping TypeName="DataBasseColetoresModel.Tb_Banco">
+              <MappingFragment StoreEntitySet="Tb_Banco">
+                <ScalarProperty Name="Codigo_Banco" ColumnName="Codigo_Banco" />
+                <ScalarProperty Name="Descricao_Banco" ColumnName="Descricao_Banco" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tb_Box">
+            <EntityTypeMapping TypeName="DataBasseColetoresModel.Tb_Box">
+              <MappingFragment StoreEntitySet="Tb_Box">
+                <ScalarProperty Name="Codigo_Box" ColumnName="Codigo_Box" />
+                <ScalarProperty Name="Descricao" ColumnName="Descricao" />
+                <ScalarProperty Name="Codigo_Func" ColumnName="Codigo_Func" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tb_Cadastro_Coletores">
+            <EntityTypeMapping TypeName="DataBasseColetoresModel.Tb_Cadastro_Coletores">
+              <MappingFragment StoreEntitySet="Tb_Cadastro_Coletores">
+                <ScalarProperty Name="Codigo_Coletor" ColumnName="Codigo_Coletor" />
+                <ScalarProperty Name="Nome_Coletor" ColumnName="Nome_Coletor" />
+                <ScalarProperty Name="CPF" ColumnName="CPF" />
+                <ScalarProperty Name="RG" ColumnName="RG" />
+                <ScalarProperty Name="Data_Nascimento" ColumnName="Data_Nascimento" />
+                <ScalarProperty Name="Codigo_Sexo_Coletor" ColumnName="Codigo_Sexo_Coletor" />
+                <ScalarProperty Name="Cidade" ColumnName="Cidade" />
+                <ScalarProperty Name="Bairro" ColumnName="Bairro" />
+                <ScalarProperty Name="Complemento" ColumnName="Complemento" />
+                <ScalarProperty Name="UF" ColumnName="UF" />
+                <ScalarProperty Name="Codigo_Estado_Civil" ColumnName="Codigo_Estado_Civil" />
+                <ScalarProperty Name="Codigo_Tipo_Associado" ColumnName="Codigo_Tipo_Associado" />
+                <ScalarProperty Name="Telefone" ColumnName="Telefone" />
+                <ScalarProperty Name="Codigo_Banco_Coletor" ColumnName="Codigo_Banco_Coletor" />
+                <ScalarProperty Name="Agencia" ColumnName="Agencia" />
+                <ScalarProperty Name="Conta_Corrente" ColumnName="Conta_Corrente" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tb_Codigo_UM">
+            <EntityTypeMapping TypeName="DataBasseColetoresModel.Tb_Codigo_UM">
+              <MappingFragment StoreEntitySet="Tb_Codigo_UM">
+                <ScalarProperty Name="Codigo_UnidadeM" ColumnName="Codigo_UnidadeM" />
+                <ScalarProperty Name="Descricao" ColumnName="Descricao" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tb_Empresa">
+            <EntityTypeMapping TypeName="DataBasseColetoresModel.Tb_Empresa">
+              <MappingFragment StoreEntitySet="Tb_Empresa">
+                <ScalarProperty Name="Codigo_Empresa" ColumnName="Codigo_Empresa" />
+                <ScalarProperty Name="Nome_Empresa" ColumnName="Nome_Empresa" />
+                <ScalarProperty Name="CNPJ" ColumnName="CNPJ" />
+                <ScalarProperty Name="Inscricao_Estadual" ColumnName="Inscricao_Estadual" />
+                <ScalarProperty Name="Inscricao_Municipal" ColumnName="Inscricao_Municipal" />
+                <ScalarProperty Name="Cidade" ColumnName="Cidade" />
+                <ScalarProperty Name="Bairro" ColumnName="Bairro" />
+                <ScalarProperty Name="UF" ColumnName="UF" />
+                <ScalarProperty Name="Telefone1" ColumnName="Telefone1" />
+                <ScalarProperty Name="Telefone2" ColumnName="Telefone2" />
+                <ScalarProperty Name="Contato" ColumnName="Contato" />
+                <ScalarProperty Name="EMail" ColumnName="EMail" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tb_Produto">
+            <EntityTypeMapping TypeName="DataBasseColetoresModel.Tb_Produto">
+              <MappingFragment StoreEntitySet="Tb_Produto">
+                <ScalarProperty Name="Codigo_Produto" ColumnName="Codigo_Produto" />
+                <ScalarProperty Name="Descricao" ColumnName="Descricao" />
+                <ScalarProperty Name="Codigo_Medidas" ColumnName="Codigo_Medidas" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tb_Tipo_Associado">
+            <EntityTypeMapping TypeName="DataBasseColetoresModel.Tb_Tipo_Associado">
+              <MappingFragment StoreEntitySet="Tb_Tipo_Associado">
+                <ScalarProperty Name="Codigo_Tipo_Associado" ColumnName="Codigo_Tipo_Associado" />
+                <ScalarProperty Name="Descricao_Tipo" ColumnName="Descricao_Tipo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tb_Tipo_Civil">
+            <EntityTypeMapping TypeName="DataBasseColetoresModel.Tb_Tipo_Civil">
+              <MappingFragment StoreEntitySet="Tb_Tipo_Civil">
+                <ScalarProperty Name="Codigo_Civil" ColumnName="Codigo_Civil" />
+                <ScalarProperty Name="Descricao_Civil" ColumnName="Descricao_Civil" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tb_Tipo_Sexo">
+            <EntityTypeMapping TypeName="DataBasseColetoresModel.Tb_Tipo_Sexo">
+              <MappingFragment StoreEntitySet="Tb_Tipo_Sexo">
+                <ScalarProperty Name="Codigo_Sexo" ColumnName="Codigo_Sexo" />
+                <ScalarProperty Name="Descricao_Sexo" ColumnName="Descricao_Sexo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

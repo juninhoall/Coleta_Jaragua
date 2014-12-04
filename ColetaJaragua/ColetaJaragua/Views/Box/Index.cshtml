@@ -1,0 +1,46 @@
+﻿@model IEnumerable<ColetaJaragua.Models.Tb_Box>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<br />
+
+<p>
+    <a class="btn btn-danger" href="/Box/Create">Cadastrar Novo Box</a>
+</p>
+<table class="table table-striped">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Codigo_Box)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Descricao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tb_Cadastro_Coletores.Nome_Coletor)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Codigo_Box)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descricao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tb_Cadastro_Coletores.Nome_Coletor)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Codigo_Box }) |
+                @Html.ActionLink("Details", "Details", new { id = item.Codigo_Box }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Codigo_Box })
+            </td>
+        </tr>
+    }
+
+</table>

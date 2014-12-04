@@ -1,0 +1,44 @@
+﻿@model IEnumerable<ColetaJaragua.Models.Tb_Produto>
+
+@{
+    ViewBag.Title = "Index";
+}
+<br />
+<p>
+    <a class="btn btn-danger" href="/Produto/Create">Cadastrar Novo Produto</a>
+</p>
+<table class="table table-striped">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Codigo_Produto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Descricao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tb_Codigo_UM.Descricao)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Codigo_Produto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descricao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tb_Codigo_UM.Descricao)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Codigo_Produto }) |
+                @Html.ActionLink("Details", "Details", new { id = item.Codigo_Produto }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Codigo_Produto })
+            </td>
+        </tr>
+    }
+
+</table>

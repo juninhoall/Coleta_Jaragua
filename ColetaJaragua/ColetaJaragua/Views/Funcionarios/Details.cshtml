@@ -1,0 +1,127 @@
+﻿@model ColetaJaragua.Models.Tb_Cadastro_Coletores
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Tb_Cadastro_Coletores</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Codigo_Coletor)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Codigo_Coletor)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Nome_Coletor)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Nome_Coletor)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.CPF)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CPF)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.RG)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.RG)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Data_Nascimento)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Data_Nascimento)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Tb_Tipo_Sexo.Descricao_Sexo)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Tb_Tipo_Sexo.Descricao_Sexo)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Cidade)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Cidade)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Bairro)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Bairro)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Complemento)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Complemento)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.UF)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.UF)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Tb_Tipo_Civil.Descricao_Civil)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Tb_Tipo_Civil.Descricao_Civil)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Tb_Tipo_Associado.Descricao_Tipo)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Tb_Tipo_Associado.Descricao_Tipo)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Telefone)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Telefone)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Tb_Banco.Descricao_Banco)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Tb_Banco.Descricao_Banco)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Agencia)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Agencia)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Conta_Corrente)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Conta_Corrente)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id=Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
